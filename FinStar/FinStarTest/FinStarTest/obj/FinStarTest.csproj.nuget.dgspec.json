@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Tests\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj": {}
+    "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Tests\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj": {
+    "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Tests\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
+        "projectUniqueName": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
         "projectName": "FinStarTest",
-        "projectPath": "C:\\Projects\\Tests\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
+        "projectPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
         "packagesPath": "C:\\Users\\unrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Tests\\FinStar\\FinStarTest\\FinStarTest\\obj\\",
+        "outputPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

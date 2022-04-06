@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9VMgheJeLwY0Q68vUTG/vzKOV2BAIiTxHYqGpDVrdN6dmGBjSRTFn7Z0/Y3k8+isSHjMlbMiPvWY+W52g49ILg==",
+  "dgSpecHash": "7mhUYLblx9fCcToBxQe+GTuOyzq7WoenPUa7kIn0lQTb8+iRJdhUis7ZEOtbTR2Ewu51LXJUkzMivXEOrA11Bg==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Tests\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
+  "projectFilePath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\unrad\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.3\\microsoft.entityframeworkcore.6.0.3.nupkg.sha512",
     "C:\\Users\\unrad\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.3\\microsoft.entityframeworkcore.abstractions.6.0.3.nupkg.sha512",

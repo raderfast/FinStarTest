@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\Tests\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {}
+    "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\Tests\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {
+    "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\Tests\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
+        "projectUniqueName": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
         "projectName": "DBWorker",
-        "projectPath": "C:\\Projects\\Tests\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
+        "projectPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
         "packagesPath": "C:\\Users\\unrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\Tests\\FinStar\\FinStarTest\\DBWorker\\obj\\",
+        "outputPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
