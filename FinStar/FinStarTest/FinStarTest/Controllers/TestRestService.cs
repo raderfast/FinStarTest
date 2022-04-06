@@ -1,3 +1,4 @@
+using DBWorker;
 using DBWorker.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -5,15 +6,16 @@ namespace FinStarTest.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TestRestService : ControllerBase
+    public class TestRestService : Controller
     {
-        private static List<Body> _bodyList = new();
-
         private readonly ILogger<TestRestService> _logger;
 
-        public TestRestService(ILogger<TestRestService> logger)
+        private readonly IConfiguration _configuration;
+
+        public TestRestService(ILogger<TestRestService> logger, IConfiguration configuration)
         {
             _logger = logger;
+            _configuration = configuration;
         }
 
         /// <summary>
@@ -23,11 +25,22 @@ namespace FinStarTest.Controllers
         /// <param name="bodyList">Список объектов</param>
         /// <returns>Резулльтат выполнения запроса</returns>
         [HttpPost(Name = "Values")]
-        public IEnumerable<Body> Post([FromBody]List<Body> bodyList)
+        public async Task<IActionResult> Post([FromBody]List<Body> bodyList)
         {
-            _bodyList = bodyList;
-            return _bodyList.OrderBy(b => b.Code)
+            Context context = new(_configuration.GetConnectionString("FinStarTest"));
+
+            await Task.Run(() => context.Bodies.RemoveRange(context.Bodies));
+
+            var bodies = bodyList
+                .OrderBy(b => b.Code)
                 .ToList();
+            
+            foreach (var body in bodies) body.OrderNumber = bodies.IndexOf(body) + 1;
+
+            await context.Bodies.AddRangeAsync(bodies);
+            await context.SaveChangesAsync();
+
+            return Json(bodies);
         }
 
         /// <summary>
@@ -35,9 +48,13 @@ namespace FinStarTest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet(Name = "Values")]
-        public IEnumerable<Body> Get()
+        public async Task<IActionResult> Get()
         {
-            return _bodyList;
+            Context context = new(_configuration.GetConnectionString("FinStarTest"));
+
+            var bodies = await Task.Run(() => context.Bodies.ToList());
+
+            return Json(bodies);
         }
     }
 }

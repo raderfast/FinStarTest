@@ -7,6 +7,7 @@ namespace DBWorker.Config
     {
         public void Configure(EntityTypeBuilder<Models.Body> builder)
         {
+            builder.HasKey(b => b.OrderNumber);
         }
     }
 }
