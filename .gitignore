@@ -30,3 +30,6 @@ _ReSharper*/
 .vs/
 #Nuget packages folder
 packages/
+/FinStar/FinStarTest/.vs/FinStarTest/DesignTimeBuild/.dtbcache.v2
+/FinStar/FinStarTest/.vs/FinStarTest/v17/.suo
+/FinStar/FinStarTest/FinStarTest/obj/Debug/net6.0/FinStarTest.csproj.AssemblyReference.cache
