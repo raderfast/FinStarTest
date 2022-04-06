@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinStarTest", "FinStarTest\FinStarTest.csproj", "{A549643D-A64B-4BD7-A8E3-8046F792272D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBWorker", "DBWorker\DBWorker.csproj", "{C3330A90-CE0B-4373-915E-7207BEC558BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A549643D-A64B-4BD7-A8E3-8046F792272D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A549643D-A64B-4BD7-A8E3-8046F792272D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A549643D-A64B-4BD7-A8E3-8046F792272D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A549643D-A64B-4BD7-A8E3-8046F792272D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3330A90-CE0B-4373-915E-7207BEC558BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3330A90-CE0B-4373-915E-7207BEC558BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3330A90-CE0B-4373-915E-7207BEC558BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3330A90-CE0B-4373-915E-7207BEC558BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42BF0878-CA03-4043-9102-D88A2DA16867}
+	EndGlobalSection
+EndGlobal
