@@ -11,7 +11,10 @@ namespace DBWorker
 
         #region DbSets
 
-
+        /// <summary>
+        /// Набор данных
+        /// </summary>
+        public DbSet<Models.Body> Bodies { get; set; }
 
         #endregion
 
@@ -42,11 +45,12 @@ namespace DBWorker
         {
             optionsBuilder
                 .EnableSensitiveDataLogging()
-                .UseNpgsql($"Host=localhost;Port=5432;Database=Test;Username=postgres;Password=1");
+                .UseNpgsql(_dbConnectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new Config.ValueConfiguration());
         }
     }
 }

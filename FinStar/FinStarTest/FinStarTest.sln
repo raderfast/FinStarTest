@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinStarTest", "FinStarTest\FinStarTest.csproj", "{A549643D-A64B-4BD7-A8E3-8046F792272D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinStarTest", "FinStarTest\FinStarTest.csproj", "{A549643D-A64B-4BD7-A8E3-8046F792272D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBWorker", "DBWorker\DBWorker.csproj", "{C3330A90-CE0B-4373-915E-7207BEC558BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBWorker", "DBWorker\DBWorker.csproj", "{C3330A90-CE0B-4373-915E-7207BEC558BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinStarTestClient", "FinStarTestClient\FinStarTestClient.csproj", "{7BFD9292-C04C-4F18-BC3A-66727BE165B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C3330A90-CE0B-4373-915E-7207BEC558BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3330A90-CE0B-4373-915E-7207BEC558BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3330A90-CE0B-4373-915E-7207BEC558BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BFD9292-C04C-4F18-BC3A-66727BE165B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFD9292-C04C-4F18-BC3A-66727BE165B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFD9292-C04C-4F18-BC3A-66727BE165B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFD9292-C04C-4F18-BC3A-66727BE165B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
