@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace DBWorker.Models
 {
-    public class Body
+    public class Value
     {
         /// <summary>
         /// Порядковый номер
@@ -21,6 +21,6 @@ namespace DBWorker.Models
         /// Значение
         /// </summary>
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
-        public string? Value { get; set; }
+        public string? ValueString { get; set; }
     }
 }

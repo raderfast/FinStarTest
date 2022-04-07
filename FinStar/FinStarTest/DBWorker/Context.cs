@@ -14,7 +14,7 @@ namespace DBWorker
         /// <summary>
         /// Набор данных
         /// </summary>
-        public DbSet<Models.Body> Bodies { get; set; }
+        public DbSet<Models.Value> Bodies { get; set; }
 
         #endregion
 
