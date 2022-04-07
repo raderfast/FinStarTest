@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Models;
 
 namespace DBWorker
 {
@@ -14,7 +15,7 @@ namespace DBWorker
         /// <summary>
         /// Набор данных
         /// </summary>
-        public DbSet<Models.Value> Bodies { get; set; }
+        public DbSet<ValueSet> ValueSets { get; set; }
 
         #endregion
 

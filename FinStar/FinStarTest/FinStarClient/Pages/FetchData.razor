@@ -1,0 +1,44 @@
+﻿@page "/"
+@inject HttpClient Http
+@using FinStarClient.Components
+
+<PageTitle>FinStar Test Case</PageTitle>
+
+@if (!ValueSets.Any())
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>OrderNumber</th>
+            <th>Code</th>
+            <th>Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for (int i = _page == 1 ? 0 : (_page - 1) * _itemsOnPage; i < (_page == 1 ? 0 : (_page - 1) * _itemsOnPage)  + _itemsOnPage && i < ValueSets.Count; i++)
+        {
+            <tr>
+                <td>@ValueSets[i].OrderNumber</td>
+                <td>@ValueSets[i].Code</td>
+                <td>@ValueSets[i].Value</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    @if (ValueSets.Count > _itemsOnPage)
+    {
+        <div class="align-content-center">
+            <Paginator
+                @bind-CurrentPage="_page"
+                ShowFirstLast="true"
+                PageCount="_pageCount"
+            />
+        </div>
+        
+    }
+}

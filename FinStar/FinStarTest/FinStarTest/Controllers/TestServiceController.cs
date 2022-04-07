@@ -1,6 +1,7 @@
 using DBWorker;
 using DBWorker.Models;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 
 namespace FinStarTest.Controllers
 {
@@ -23,7 +24,7 @@ namespace FinStarTest.Controllers
         /// </summary>
         /// <param name="values">Список </param>
         /// <returns></returns>
-        private async Task<List<Value>> ProcessBody(List<Value> values)
+        private async Task<List<ValueSet>> ProcessBody(List<ValueSet> values)
         {
             values = values
                 .OrderBy(b => b.Code)
@@ -42,17 +43,17 @@ namespace FinStarTest.Controllers
         /// <param name="values">Список объектов</param>
         /// <returns>Резулльтат выполнения запроса</returns>
         [HttpPost(Name = "Values")]
-        public async Task<IActionResult> Post([FromBody]List<Value> values)
+        public async Task<IActionResult> Post([FromBody]List<ValueSet> values)
         {
             try
             {
                 Context context = new(_configuration.GetConnectionString("FinStarTest"));
 
-                await Task.Run(() => context.Bodies.RemoveRange(context.Bodies));
+                await Task.Run(() => context.ValueSets.RemoveRange(context.ValueSets));
 
                 var bodies = await ProcessBody(values);
 
-                await context.Bodies.AddRangeAsync(bodies);
+                await context.ValueSets.AddRangeAsync(bodies);
                 await context.SaveChangesAsync();
 
                 return Json(new List<Parameter>()
@@ -94,7 +95,7 @@ namespace FinStarTest.Controllers
             {
                 Context context = new(_configuration.GetConnectionString("FinStarTest"));
 
-                var bodies = await Task.Run(() => context.Bodies.ToList());
+                var bodies = await Task.Run(() => context.ValueSets.ToList());
 
                 return Json(bodies);
             }

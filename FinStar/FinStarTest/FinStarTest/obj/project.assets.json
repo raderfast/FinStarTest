@@ -379,8 +379,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.3",
           "Microsoft.EntityFrameworkCore": "6.0.3",
+          "Models": "1.0.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "6.0.3"
         },
         "compile": {
@@ -388,6 +388,16 @@
         },
         "runtime": {
           "bin/placeholder/DBWorker.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -1065,11 +1075,17 @@
       "type": "project",
       "path": "../DBWorker/DBWorker.csproj",
       "msbuildProject": "../DBWorker/DBWorker.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "DBWorker >= 1.0.0",
+      "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.3",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -1121,6 +1137,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+            "target": "Package",
+            "version": "[6.0.3, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
