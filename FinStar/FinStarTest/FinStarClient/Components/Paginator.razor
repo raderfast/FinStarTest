@@ -1,69 +1,81 @@
-﻿@if (PageCount > 1)
+﻿@if (PageCount >= 1)
 {
     var adjusted = Math.Min(VisiblePages, PageCount);
     var half = (int)Math.Floor(adjusted / 2d);
     var start = Math.Max(CurrentPage - half, 1);
     var finish = Math.Min(CurrentPage + half, PageCount);
-    if (start <= 1) {  start = 1; finish = adjusted; }
+    if (start <= 1) { start = 1; finish = adjusted; }
     if (finish >= PageCount) { start = PageCount - adjusted; }
-    if (start <= 1) {  start = 1; }
+    if (start <= 1) { start = 1; }
     var hasPrevious = CurrentPage > 1 && PageCount > 1;
     var hasNext = CurrentPage < PageCount;
-    <nav>
-        <ul class="pagination justify-content-start">
-            @if (ShowFirstLast)
-            {
-                if (CurrentPage == 1)
-                {
-                    <li class="page-item disabled noselect"><a class="page-link" tabindex="-1"><span aria-hidden="true">@FirstText</span><span class="sr-only">	&#60;&#60;</span></a></li>
-                }
-                else
-                {
-                    <li class="page-item noselect"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(1))"><span aria-hidden="true">@FirstText</span><span class="sr-only">&#60;&#60;</span></a></li>
-                }
-            }
-            @if (hasPrevious)
-            {
-                <li class="page-item noselect"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(CurrentPage - 1))"><span aria-hidden="true">@PreviousText</span><span class="sr-only">&#60;</span></a></li>
-            }
-            else
-            {
-                <li class="page-item disabled noselect"><a class="page-link" tabindex="-1"><span aria-hidden="true">@PreviousText</span><span class="sr-only">&#60;</span></a></li>
-            }
-            @if (ShowPageNumbers)
-            {
-                for (var i = start; i <= finish; i++)
-                {
-                    var currentIndex = i;
-                    if (i == CurrentPage)
+    <div class="row d-flex align-items-center">
+        <div class="col text-right">
+            <nav>
+                <ul class="pagination justify-content-start">
+                    @if (ShowFirstLast)
                     {
-                        <li class="page-item active noselect"><a class="page-link">@i</a></li>
+                        if (CurrentPage == 1)
+                        {
+                            <li class="page-item disabled noselect"><a class="page-link" tabindex="-1"><span aria-hidden="true">@FirstText</span><span class="sr-only"> &#60;&#60;</span></a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item noselect"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(1))"><span aria-hidden="true">@FirstText</span><span class="sr-only">&#60;&#60;</span></a></li>
+                        }
+                    }
+                    @if (hasPrevious)
+                    {
+                        <li class="page-item noselect"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(CurrentPage - 1))"><span aria-hidden="true">@PreviousText</span><span class="sr-only">&#60;</span></a></li>
                     }
                     else
                     {
-                        <li class="page-item noselect"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(currentIndex))">@currentIndex</a></li>
+                        <li class="page-item disabled noselect"><a class="page-link" tabindex="-1"><span aria-hidden="true">@PreviousText</span><span class="sr-only">&#60;</span></a></li>
                     }
-                }
-            }
-            @if (hasNext)
-            {
-                <li class="page-item"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(CurrentPage + 1))"><span aria-hidden="true">@NextText</span><span class="sr-only">&#62;</span></a></li>
-            }
-            else
-            {
-                <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">@NextText</span><span class="sr-only">	&#62;</span></a></li>
-            }
-            @if (ShowFirstLast)
-            {
-                if (CurrentPage == PageCount)
-                {
-                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">@LastText</span><span class="sr-only">>	&#62;&#62;</span></a></li>
-                }
-                else
-                {
-                    <li class="page-item"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(PageCount))"><span aria-hidden="true">@LastText</span><span class="sr-only">&#62;&#62;</span></a></li>
-                }
-            }
-        </ul>
-    </nav>
+                    @if (ShowPageNumbers)
+                    {
+                        for (var i = start; i <= finish; i++)
+                        {
+                            var currentIndex = i;
+                            if (i == CurrentPage)
+                            {
+                                <li class="page-item active noselect"><a class="page-link">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item noselect"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(currentIndex))">@currentIndex</a></li>
+                            }
+                        }
+                    }
+                    @if (hasNext)
+                    {
+                        <li class="page-item"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(CurrentPage + 1))"><span aria-hidden="true">@NextText</span><span class="sr-only">&#62;</span></a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">@NextText</span><span class="sr-only"> &#62;</span></a></li>
+                    }
+                    @if (ShowFirstLast)
+                    {
+                        if (CurrentPage == PageCount)
+                        {
+                            <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1"><span aria-hidden="true">@LastText</span><span class="sr-only">> &#62;&#62;</span></a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item"><a class="page-link sort-link" @onclick="@(() => PagerButtonClicked(PageCount))"><span aria-hidden="true">@LastText</span><span class="sr-only">&#62;&#62;</span></a></li>
+                        }
+                    }
+                    <div class="form-group mx-2">
+                        <select class="form-control" @onchange="@(e => ItemCountChanged.InvokeAsync(Int32.Parse((string)e.Value)))">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="@TotalItemCount">All</option>
+                        </select>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
 }

@@ -4,34 +4,43 @@ namespace FinStarClient.Components
 {
     public partial class Paginator
     {
-        [Parameter] 
+        [Parameter]
         public int PageCount { get; set; }
 
-        [Parameter] 
+        [Parameter]
         public int CurrentPage { get; set; }
 
-        [Parameter] 
+        [Parameter]
         public EventCallback<int> CurrentPageChanged { get; set; }
 
-        [Parameter] 
+        [Parameter]
+        public int ItemCount { get; set; }
+
+        [Parameter]
+        public EventCallback<int> ItemCountChanged { get; set; }
+
+        [Parameter]
+        public int TotalItemCount { get; set; }
+
+        [Parameter]
         public bool ShowFirstLast { get; set; } = false;
 
-        [Parameter] 
+        [Parameter]
         public bool ShowPageNumbers { get; set; } = true;
 
-        [Parameter] 
+        [Parameter]
         public string FirstText { get; set; } = String.Empty;
 
-        [Parameter] 
+        [Parameter]
         public string LastText { get; set; } = String.Empty;
 
-        [Parameter] 
+        [Parameter]
         public string PreviousText { get; set; } = String.Empty;
 
-        [Parameter] 
+        [Parameter]
         public string NextText { get; set; } = String.Empty;
 
-        [Parameter] 
+        [Parameter]
         public int VisiblePages { get; set; } = 5;
 
         private void PagerButtonClicked(int page)

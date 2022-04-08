@@ -1,7 +1,11 @@
+using System.Linq.Expressions;
+using System.Net;
 using DBWorker;
-using DBWorker.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Models;
+using Newtonsoft.Json;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Query.Expressions.Internal;
 
 namespace FinStarTest.Controllers
 {
@@ -43,7 +47,8 @@ namespace FinStarTest.Controllers
         /// <param name="values">Список объектов</param>
         /// <returns>Резулльтат выполнения запроса</returns>
         [HttpPost(Name = "Values")]
-        public async Task<IActionResult> Post([FromBody]List<ValueSet> values)
+        [Route("PostValues")]
+        public async Task<IActionResult> PostValues([FromBody]List<ValueSet> values)
         {
             try
             {
@@ -62,6 +67,11 @@ namespace FinStarTest.Controllers
                     {
                         Name = "ResultMessage",
                         Value = "Данные успешно обновлены."
+                    },
+                    new ()
+                    {
+                        Name = "IsError",
+                        Value = "false"
                     }
                 });
             }
@@ -73,12 +83,12 @@ namespace FinStarTest.Controllers
                     new Parameter()
                     {
                         Name = "ResultMessage",
-                        Value = "Ошибка!"
+                        Value = e.Message
                     },
                     new Parameter()
                     {
                         Name = "IsError",
-                        Value = e.Message
+                        Value = "true"
                     }
                 });
             }
@@ -89,13 +99,28 @@ namespace FinStarTest.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet(Name = "Values")]
-        public async Task<IActionResult> Get()
+        [Route("GetValues")]
+        public async Task<IActionResult> GetValues([FromHeader]string? filterData, [FromHeader]int skip, [FromHeader]int take)
         {
             try
             {
                 Context context = new(_configuration.GetConnectionString("FinStarTest"));
 
-                var bodies = await Task.Run(() => context.ValueSets.ToList());
+                List<ValueSet> bodies = new List<ValueSet>();
+
+                if (filterData == null)
+                {
+                    bodies = await Task.Run(() => context.ValueSets
+                        .Skip(skip).Take(take)
+                        .ToList());
+                }
+                else
+                {
+                    bodies = await Task.Run(() => context.ValueSets
+                        .Where(vs => EF.Functions.Like(vs.Value ?? String.Empty, filterData + "%"))
+                        .Skip(skip).Take(take)
+                        .ToList());
+                }
 
                 return Json(bodies);
             }
@@ -107,12 +132,61 @@ namespace FinStarTest.Controllers
                     new ()
                     {
                         Name = "ResultMessage",
-                        Value = "Ошибка!"
+                        Value = e.Message
                     },
                     new ()
                     {
                         Name = "IsError",
+                        Value = "true"
+                    }
+                });
+            }
+        }
+
+        /// <summary>
+        /// Получение списка элементов из БД
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet(Name = "ValuesCount")]
+        [Route("GetValuesCount")]
+        public async Task<IActionResult> GetValuesCountAsync()
+        {
+            try
+            {
+                Context context = new(_configuration.GetConnectionString("FinStarTest"));
+
+                var ValuesCount = await context.ValueSets.CountAsync();
+
+                var parameter = new List<Parameter>()
+                {
+                    new Parameter()
+                    {
+                        Name = "ValuesCount",
+                        Value = ValuesCount.ToString()
+                    },
+                    new ()
+                    {
+                        Name = "IsError",
+                        Value = "false"
+                    }
+                };
+
+                return Json(parameter);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e.Message);
+                return Json(new List<Parameter>()
+                {
+                    new ()
+                    {
+                        Name = "ResultMessage",
                         Value = e.Message
+                    },
+                    new ()
+                    {
+                        Name = "IsError",
+                        Value = "true"
                     }
                 });
             }
