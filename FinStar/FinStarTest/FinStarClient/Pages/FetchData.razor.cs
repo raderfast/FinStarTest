@@ -79,6 +79,11 @@ namespace FinStarClient.Pages
             }
         }
 
+
+        /// <summary>
+        /// Настройка пагинатора
+        /// </summary>
+        /// <returns></returns>
         private async Task SetupPaginator()
         {
             var parameter = await _restClient.GetAsync<List<Parameter>>(
@@ -92,10 +97,10 @@ namespace FinStarClient.Pages
                     if (_itemsOnPage == _totalItems - 1) _itemsOnPage++;
 
                     _pageCount = Convert.ToInt32(Math.Ceiling((double)_totalItems / _itemsOnPage));
+
+                    if (_page > _pageCount) _page = _pageCount;
                 }
             }
-
-
         }
 
         /// <summary>
