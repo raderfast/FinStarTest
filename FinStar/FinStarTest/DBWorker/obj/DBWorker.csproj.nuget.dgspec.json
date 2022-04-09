@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {}
+    "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {
+    "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
+        "projectUniqueName": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
         "projectName": "DBWorker",
-        "projectPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
+        "projectPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj",
         "packagesPath": "C:\\Users\\unrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\obj\\",
+        "outputPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\DBWorker\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\unrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\Models\\Models.csproj": {
-                "projectPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\Models\\Models.csproj"
+              "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\Models\\Models.csproj": {
+                "projectPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\Models\\Models.csproj"
               }
             }
           }
@@ -76,21 +72,17 @@
         }
       }
     },
-    "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\Models\\Models.csproj": {
+    "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\Models\\Models.csproj",
+        "projectPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\unrad\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\Models\\obj\\",
+        "outputPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\Models\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\unrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

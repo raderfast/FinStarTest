@@ -117,7 +117,7 @@ namespace FinStarTest.Controllers
                 else
                 {
                     bodies = await Task.Run(() => context.ValueSets
-                        .Where(vs => EF.Functions.Like(vs.Value ?? String.Empty, filterData + "%"))
+                        .Where(vs => EF.Functions.Like((vs.Value ?? String.Empty).ToUpper(), filterData.ToUpper() + "%"))
                         .Skip(skip).Take(take)
                         .ToList());
                 }

@@ -3,7 +3,6 @@
 
 <PageTitle>FinStar Test Case</PageTitle>
 
-@_itemsOnPage
 <div class="row d-flex align-items-center">
     <div class="col text-right">
         @if (ListEdit)
@@ -13,58 +12,58 @@
         }
         else
         {
-            <button class="btn btn-primary" @onclick="() => ListEdit = true" disabled="@RowBeingEdited">Edit List</button>
+            @if (_totalItems <= _itemsOnPage)
+            {
+                <button class="btn btn-primary" @onclick="() => ListEdit = true" disabled="@RowBeingEdited">Edit List</button>
+            }
         }
-    </div>
-</div>
-<div class="row d-flex align-items-center mt-2">
-    <div class="col text-right">
-        <input type="text" @onchange="(e) => FilterData((string)e.Value)" />
+        <label class="mx-2">Filter data</label>
+        <input placeholder="Enter string to filter data" type="text" @onchange="(e) => FilterData((string)e.Value)" />
     </div>
 </div>
 
 <table class="table">
     <thead>
-    <tr>
-        <th style="width: 20%">OrderNumber</th>
-        <th style="width: 20%">Code</th>
-        <th style="width: 40%">Value</th>
-        @if (ListEdit)
-        {
-            <th style="width: 20%;">&nbsp;</th>
-        }
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var gridItem in GridData)
-    {
-        <tr class="@(gridItem.Value.editMode ? "table-danger" : "")">
-            @if (gridItem.Value.editMode)
-            {
-                <td></td>
-                <td><input class="form-control" type="text" @bind="@gridItem.Value.data.Code" /></td>
-                <td><input class="form-control" type="text" @bind="@gridItem.Value.data.Value" /></td>
-            }
-            else
-            {
-                <td>@gridItem.Value.data.OrderNumber</td>
-                <td>@gridItem.Value.data.Code</td>
-                <td>@gridItem.Value.data.Value</td>
-            }
+        <tr>
+            <th style="width: 20%">OrderNumber</th>
+            <th style="width: 20%">Code</th>
+            <th style="width: 40%">Value</th>
             @if (ListEdit)
             {
-                <td class="text-right">
-                    <button class="btn btn-primary btn-sm @(gridItem.Value.editMode ? "hidden" : "")" @onclick="@(() => StartEditMode(gridItem.Value.data.OrderNumber))" disabled="@RowBeingEdited">Edit</button>
-                    <button class="btn btn-success btn-sm @(gridItem.Value.editMode ? "" : "hidden")" @onclick="@(() => SaveRowEdit(gridItem.Value.data.OrderNumber))">Ok</button>
-                    <button class="btn btn-danger btn-sm @(gridItem.Value.editMode ? "" : "hidden")" @onclick="@(() => CancelEditMode(gridItem.Value.data.OrderNumber))">Cancel</button>
-                    @if (!NewRecord)
-                    {
-                        <button class="btn btn-danger btn-sm @(gridItem.Value.editMode ? "" : "hidden")" @onclick="@(() => Delete(gridItem.Value.data.OrderNumber))">Delete</button>
-                    }
-                </td>
+                <th style="width: 20%;">&nbsp;</th>
             }
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var gridItem in GridData)
+        {
+            <tr class="@(gridItem.Value.editMode ? "table-danger" : "")">
+                @if (gridItem.Value.editMode)
+                {
+                    <td></td>
+                    <td><input class="form-control" type="text" @bind="@gridItem.Value.data.Code" /></td>
+                    <td><input class="form-control" type="text" @bind="@gridItem.Value.data.Value" /></td>
+                }
+                else
+                {
+                    <td>@gridItem.Value.data.OrderNumber</td>
+                    <td>@gridItem.Value.data.Code</td>
+                    <td>@gridItem.Value.data.Value</td>
+                }
+                @if (ListEdit)
+                {
+                    <td class="text-right">
+                        <button class="btn btn-primary btn-sm @(gridItem.Value.editMode ? "hidden" : "")" @onclick="@(() => StartEditMode(gridItem.Value.data.OrderNumber))" disabled="@RowBeingEdited">Edit</button>
+                        <button class="btn btn-success btn-sm @(gridItem.Value.editMode ? "" : "hidden")" @onclick="@(() => SaveRowEdit(gridItem.Value.data.OrderNumber))">Ok</button>
+                        <button class="btn btn-danger btn-sm @(gridItem.Value.editMode ? "" : "hidden")" @onclick="@(() => CancelEditMode(gridItem.Value.data.OrderNumber))">Cancel</button>
+                        @if (!NewRecord)
+                        {
+                            <button class="btn btn-danger btn-sm @(gridItem.Value.editMode ? "" : "hidden")" @onclick="@(() => Delete(gridItem.Value.data.OrderNumber))">Delete</button>
+                        }
+                    </td>
+                }
+            </tr>
+        }
     </tbody>
 </table>
 
@@ -75,7 +74,3 @@
            TotalItemCount="_totalItems"
            ShowFirstLast="true"
            PageCount="_pageCount" />
-
-@if (_totalItems > _itemsOnPage)
-{
-}

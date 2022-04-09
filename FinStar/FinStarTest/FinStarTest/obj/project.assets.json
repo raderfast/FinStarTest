@@ -1090,24 +1090,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\unrad\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\unrad\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
+      "projectUniqueName": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
       "projectName": "FinStarTest",
-      "projectPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
+      "projectPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
       "packagesPath": "C:\\Users\\unrad\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\obj\\",
+      "outputPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\FinStarTest\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\unrad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1121,8 +1116,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {
-              "projectPath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj"
+            "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj": {
+              "projectPath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\DBWorker\\DBWorker.csproj"
             }
           }
         }

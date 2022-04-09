@@ -42,6 +42,9 @@ namespace FinStarClient.Pages
         private int _tempColTwo = 0;
         private string _tempColThree = "";
 
+        /// <summary>
+        /// Строка фильтрации данных
+        /// </summary>
         private string? _filerString = String.Empty;
 
         /// <summary>
@@ -58,8 +61,6 @@ namespace FinStarClient.Pages
         /// Флаг нового элемента
         /// </summary>
         public bool NewRecord { get; set; } = false;
-
-
 
         /// <summary>
         /// Список элементов с флагами их редактирования
@@ -78,6 +79,25 @@ namespace FinStarClient.Pages
             }
         }
 
+        private async Task SetupPaginator()
+        {
+            var parameter = await _restClient.GetAsync<List<Parameter>>(
+                    new RestRequest(@"https://localhost:7136/TestService/GetValuesCount")) ??
+                new List<Parameter>();
+
+            if (parameter.Find(p => p.Name == "IsError")?.Value == "false")
+            {
+                if (Int32.TryParse(parameter.Find(p => p.Name == "ValuesCount")?.Value, out _totalItems))
+                {
+                    if (_itemsOnPage == _totalItems - 1) _itemsOnPage++;
+
+                    _pageCount = Convert.ToInt32(Math.Ceiling((double)_totalItems / _itemsOnPage));
+                }
+            }
+
+
+        }
+
         /// <summary>
         /// Загрузка данных
         /// </summary>
@@ -86,17 +106,7 @@ namespace FinStarClient.Pages
         {
             try
             {
-                var parameter = await _restClient.GetAsync<List<Parameter>>(
-                                    new RestRequest(@"https://localhost:7136/TestService/GetValuesCount")) ??
-                                new List<Parameter>();
-
-                if (parameter.Find(p => p.Name == "IsError")?.Value == "false")
-                {
-                    if (Int32.TryParse(parameter.Find(p => p.Name == "ValuesCount")?.Value, out _totalItems))
-                    {
-                        _pageCount = Convert.ToInt32(Math.Ceiling((double)_totalItems / _itemsOnPage));
-                    }
-                }
+                await SetupPaginator();
 
                 ValueSets = await _restClient.GetAsync<List<ValueSet>>(
                                 new RestRequest(@"https://localhost:7136/TestService/GetValues")
@@ -127,7 +137,7 @@ namespace FinStarClient.Pages
         {
             //var response = await _restClient.PostJsonAsync(@"https://localhost:7136/TestService/PostValues", ValueSets);
 
-            var response = await _restClient.PostAsync(new RestRequest(@"https://localhost:7136/TestService").AddBody(ValueSets));
+            var response = await _restClient.PostAsync(new RestRequest(@"https://localhost:7136/TestService/Values").AddBody(ValueSets));
 
             if (response.Content != null)
             {

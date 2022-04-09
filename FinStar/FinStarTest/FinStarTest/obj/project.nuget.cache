@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pQledDCE9WNBqMul/evBdwmaXWaL5ZwrdT2prtUGr6HQnR6M/NbmamEJQfmazhXasR74jApWO3hkhxmYsLA10w==",
+  "dgSpecHash": "vx3FYRgJk7AeHjBMdYPzhn3umFXclQqH/3Sh4+xwoCwDMLEDJveWi8rq2OmrKc/98gzuUADXIYDtYJNwEy33+w==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\TestsCases\\FinStar\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
+  "projectFilePath": "C:\\Projects\\Tests\\FinStarTest\\FinStar\\FinStarTest\\FinStarTest\\FinStarTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\unrad\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.3\\microsoft.aspnetcore.jsonpatch.6.0.3.nupkg.sha512",
     "C:\\Users\\unrad\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.3\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.3.nupkg.sha512",
